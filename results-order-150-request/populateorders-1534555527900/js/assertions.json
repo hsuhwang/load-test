@@ -1,0 +1,10 @@
+{
+  "simulation": "com.datastax.PopulateOrders",
+  "simulationId": "populateorders",
+  "start": 1534555527900,
+  "description": "",
+  "scenarios": ["loadData"],
+  "assertions": [
+
+  ]
+}
