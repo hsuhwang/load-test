@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema name="autoSolrSchema" version="1.5">
+  <types>
+    <fieldType class="org.apache.solr.schema.TextField" name="TextField">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+       <tokenizer class="solr.KeywordTokenizerFactory" />
+      </analyzer>
+      <analyzer type="index">
+       <tokenizer class="solr.KeywordTokenizerFactory"/>
+       <filter class="solr.EdgeNGramFilterFactory" maxGramSize="100"/>
+      </analyzer>
+    </fieldType>
+    <fieldType class="org.apache.solr.schema.TrieFloatField" name="TrieFloatField"/>
+    <fieldType class="org.apache.solr.schema.UUIDField" name="UUIDField"/>
+  </types>
+  <fields>
+    <field indexed="true" multiValued="false" name="upc" stored="true" type="TextField"/>
+    <field docValues="true" indexed="true" multiValued="false" name="price" stored="true" type="TrieFloatField"/>
+    <field indexed="true" multiValued="false" name="name" stored="true" type="TextField"/>
+    <field indexed="true" multiValued="false" name="color" stored="true" type="TextField"/>
+    <field indexed="true" multiValued="false" name="size" stored="true" type="TextField"/>
+    <field docValues="true" indexed="true" multiValued="false" name="product_id" stored="true" type="UUIDField"/>
+    <field indexed="true" multiValued="false" name="description" stored="true" type="TextField"/>
+  </fields>
+  <uniqueKey>product_id</uniqueKey>
+</schema>
+
