@@ -1,0 +1,10 @@
+{
+  "simulation": "com.datastax.atwater.loadtest.PopulateProducts",
+  "simulationId": "populateproducts",
+  "start": 1534898646308,
+  "description": "",
+  "scenarios": ["loadData"],
+  "assertions": [
+
+  ]
+}
